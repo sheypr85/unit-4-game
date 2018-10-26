@@ -4,13 +4,45 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/javascript/game.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
-    <script src="assets/javascript/game.js"></script>
 </head>
 <body>
-    
+    <div class="container" style="padding:50px">
+        <div class="row">
+            <div class="col-md-8">
+               <img src="assets/images/pic1.png" id="gem1" class="gems" style="margin-top: 6px">
+               <img src="assets/images/pic2.png" id="gem2" class="gems">
+               <img src="assets/images/pic3.png" id="gem3" class="gems" style="margin-top: 12px">
+               <img src="assets/images/pic4.png" id="gem4" class="gems">
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Guess this number!</h5>
+                        <h6 class="card-subtitle mb-2" id="number-selector">
+                            <h1 class="text-center" id="random-number"></h1>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Current score</h5>
+                            <h1 class="text-center" id="currentScore"></h1>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

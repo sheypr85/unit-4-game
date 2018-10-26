@@ -26,29 +26,51 @@ $("#currentScore").html(score);
     //Sets a random number to gem1; 
     var gemRandom1 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     $("#gem1").prepend(gemRandom1);
-    $("#gem1").on('click', function(){
-        
-    });
- 
+
+    $("#gem1").on("click", function(){
+        score += gemRandom1;
+        console.log(score);
+        $("#currentScore").html(score);
+    })
+
     //sets random number to gem2:
     var gemRandom2 = Math.floor(Math.random() * (6 - 4 + 1)) + 4;
     $("#gem2").prepend(gemRandom2);
-    console.log(gemRandom2)
+    
+    $("#gem2").on("click", function(){
+        score += gemRandom2;
+        console.log(score);
+        $("#currentScore").html(score);
+        
+    })
 
     //sets random number to gem3;
     var gemRandom3 = Math.floor(Math.random() * (9 - 7 + 1)) + 7;
     $("#gem3").prepend(gemRandom3);
-    console.log(gemRandom3)
+    
+    $("#gem3").on("click", function(){
+        score += gemRandom3;
+        console.log(score);
+        $("#currentScore").html(score);
+        
+    })
 
     //sets random number to gem4;
     var gemRandom4 = Math.floor(Math.random() *(12 - 10 + 1)) + 10;
-    $("#gem2").prepend(gemRandom4);
-    console.log(gemRandom4)
+    $("#gem4").prepend(gemRandom4);
+   
+    $("#gem4").on("click", function(){
+        score += gemRandom4;
+        console.log(score);
+        $("#currentScore").html(score);
 
+    })
 
+    
 
+ 
 
-
+   
 
 
 

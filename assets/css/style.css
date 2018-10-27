@@ -2,3 +2,22 @@
     width: 100px;
     height: 100px;
 }
+
+#cardguess {
+    width: 18rem; 
+    margin-left: 200px;
+    margin-top: 30px;
+    border: none;
+    text-align: center;
+}
+
+.cardscore {
+    width: 18rem; 
+    margin-left: 110px;
+    border: none;
+    text-align: center;
+}
+
+.jewels {
+    margin-top: 60px;
+}

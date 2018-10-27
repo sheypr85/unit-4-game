@@ -1,73 +1,90 @@
-
-
-$( document ).ready(function() {
-    
 //set variables 
 var randomMin = 19;
 var randomMax = 120;
-var isGameOn = false;
-var wins = 0;
-var loses = 0;
+var randomNumber = 0;
+var winGame = 0;
+var loseGame = 0;
 var score = 0;
-$("#currentScore").html(score);
-//4 crystals to act as buttons for function
-// create values for crystals
-// create random number for user to guess answer to and push to a div
-//add amount of points to a (card) adding what user is clicking
-// when it gets to the number stop (lose or win) and restart
-//create a random number array to replace value of crystal each time it refreshes (function)
-
-    var num = Math.floor(Math.random() * (randomMax - randomMin + 1))+randomMin;
-    var randomNumber = $("#random-number");
-    randomNumber.text(num);
-    $("#number-selector").prepend(randomNumber);
+var isGameOn = 0;
+var gemRandom1 = 0;
+var gemRandom2 = 0;
+var gemRandom3 = 0;
+var gemRandom4 = 0;
 
 
-    //Sets a random number to gem1; 
-    var gemRandom1 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-    $("#gem1").prepend(gemRandom1);
+$( document ).ready(function() {    
+
+    startGame();
 
     $("#gem1").on("click", function(){
-        score += gemRandom1;
-        console.log(score);
-        $("#currentScore").html(score);
-    })
+        addScore(gemRandom1)
+    });
 
-    //sets random number to gem2:
-    var gemRandom2 = Math.floor(Math.random() * (6 - 4 + 1)) + 4;
-    $("#gem2").prepend(gemRandom2);
-    
     $("#gem2").on("click", function(){
-        score += gemRandom2;
-        console.log(score);
-        $("#currentScore").html(score);
-        
-    })
-
-    //sets random number to gem3;
-    var gemRandom3 = Math.floor(Math.random() * (9 - 7 + 1)) + 7;
-    $("#gem3").prepend(gemRandom3);
+        addScore(gemRandom2) 
+    });
     
     $("#gem3").on("click", function(){
-        score += gemRandom3;
-        console.log(score);
-        $("#currentScore").html(score);
-        
-    })
-
-    //sets random number to gem4;
-    var gemRandom4 = Math.floor(Math.random() *(12 - 10 + 1)) + 10;
-    $("#gem4").prepend(gemRandom4);
-   
-    $("#gem4").on("click", function(){
-        score += gemRandom4;
-        console.log(score);
-        $("#currentScore").html(score);
-
-    })
-
+        addScore(gemRandom3)
+    });
     
+    $("#gem4").on("click", function(){
+        addScore(gemRandom4)
+    });
 
+
+
+});
+
+function changeVariables() {
+
+    gemRandom1 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    gemRandom2 = Math.floor(Math.random() * (6 - 4 + 1)) + 4;
+    gemRandom3 = Math.floor(Math.random() * (9 - 7 + 1)) + 7;
+    gemRandom4 = Math.floor(Math.random() * (12 - 10 + 1)) + 10;
+
+}
+
+
+function startGame() {
+
+    changeVariables();
+    $("#currentScore").html(score);
+
+    randomNumber = Math.floor(Math.random() * (randomMax - randomMin + 1))+randomMin;
+    var num = $("#random-number");
+    num.text(randomNumber);
+    score = 0;
+    $("#currentScore").html(score);
+
+    $("#wincount").html("Wins:" + " " + winGame);
+    $("#losecount").html("Loses:" + " " + loseGame);
+
+
+}
+
+//add the number clicked to guessed number
+function addScore(value) {
+    score += value;
+    $("#currentScore").html(score);
+    isGameOver()
+}
+
+//Checking if game is on or over
+function isGameOver() {
+    if (score == randomNumber) {
+        winGame++;
+        startGame()
+    }
+    else if (score > randomNumber) {
+        loseGame++;
+        startGame()
+    }
+};
+
+function addSound() {
+
+}
  
 
    
@@ -93,19 +110,9 @@ $("#currentScore").html(score);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
+//4 crystals to act as buttons for function
+// create values for crystals
+// create random number for user to guess answer to and push to a div
+//add amount of points to a (card) adding what user is clicking
+// when it gets to the number stop (lose or win) and restart
+//create a random number array to replace value of crystal each time it refreshes (function)
